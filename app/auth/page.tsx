@@ -1,7 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import axios from "axios";
+import { Spinner } from "@/components/ui/spinner";
+import { useState } from "react";
 
 function GoogleIcon() {
   return (
@@ -33,8 +34,12 @@ function GoogleIcon() {
 }
 
 export default function Login() {
-  const handleGoogleLogin = async () => {
-    window.location.href = "http://localhost:3000/google/auth";
+  const [isLoading, setIsloading] = useState(false);
+  const handleGoogleLogin = () => {
+    setIsloading(true);
+    setTimeout(() => {
+      window.location.href = "http://localhost:3000/google/auth";
+    }, 100);
   };
 
   return (
@@ -85,10 +90,12 @@ export default function Login() {
 
           {/* Google button */}
           <Button
+            disabled={isLoading}
             variant="outline"
             className="w-full cursor-pointer h-11 gap-3 rounded-xl border-zinc-200 dark:border-zinc-700 text-zinc-800 dark:text-zinc-100 text-sm font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-sm"
             onClick={handleGoogleLogin}
           >
+            {isLoading && <Spinner data-icon="inline-start" />}
             <GoogleIcon />
             Continue with Google
           </Button>
