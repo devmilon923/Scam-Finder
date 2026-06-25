@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const backendURL = process.env.NEXT_PUBLIC_Backend_URL;
@@ -31,7 +32,29 @@ api.interceptors.response.use(
 );
 
 export async function useProfile() {
-  
+  const GET_PROFILE = `
+  query {
+    user {
+      id
+      name
+      email
+    }
+  }
+`;
+
+  useQuery({
+    queryKey: ["profile"],
+    queryFn: async () => {
+      try {
+        const result = await api.post(backendURL + "/gq", {
+          query: GET_PROFILE,
+        });
+        return result.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
 }
 
 export default api;
