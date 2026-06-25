@@ -31,7 +31,7 @@ api.interceptors.response.use(
   },
 );
 
-export async function useProfile() {
+export function useProfile() {
   const GET_PROFILE = `
   query {
     user {
@@ -42,17 +42,14 @@ export async function useProfile() {
   }
 `;
 
-  useQuery({
+  return useQuery({
     queryKey: ["profile"],
     queryFn: async () => {
-      try {
-        const result = await api.post(backendURL + "/gq", {
-          query: GET_PROFILE,
-        });
-        return result.data;
-      } catch (error) {
-        console.log(error);
-      }
+      const result = await api.post(backendURL + "/gq", {
+        query: GET_PROFILE,
+      });
+
+      return result.data;
     },
   });
 }
