@@ -29,4 +29,9 @@ api.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+
+export async function useProfile() {
+  
+}
+
 export default api;

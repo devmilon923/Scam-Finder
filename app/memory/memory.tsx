@@ -24,6 +24,7 @@ export const AuthContext = createContext<ContextPayload | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserType | null>(null);
+  
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>
