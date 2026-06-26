@@ -38,6 +38,9 @@ export function useProfile() {
       id
       name
       email
+      role
+      oauthid
+      createdAt
     }
   }
 `;
