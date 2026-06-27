@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { setAuthFlag } from "@/hooks/axios";
 import { useState } from "react";
 
 function GoogleIcon() {
@@ -38,6 +39,7 @@ export default function Login() {
   const handleGoogleLogin = () => {
     setIsloading(true);
     setTimeout(() => {
+      setAuthFlag();
       window.location.href = "http://localhost:3000/google/auth";
     }, 100);
   };

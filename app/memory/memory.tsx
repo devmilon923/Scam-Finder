@@ -1,5 +1,5 @@
 "use client";
-import { useProfile } from "@/hooks/axios";
+import { clearAuthFlag, setAuthFlag, useProfile } from "@/hooks/axios";
 import {
   createContext,
   ReactNode,
@@ -28,12 +28,14 @@ export const AuthContext = createContext<ContextPayload | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserType | undefined>(undefined);
 
-  const { data } = useProfile();
+  const { data, isSuccess } = useProfile();
   useEffect(() => {
-    if (data) {
+    if (data && isSuccess) {
       setUser(data.data.user);
+    } else {
+      clearAuthFlag();
     }
-  }, [data]);
+  }, [data, isSuccess]);
 
   return (
     <AuthContext.Provider value={{ user, setUser }}>

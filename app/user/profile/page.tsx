@@ -1,7 +1,6 @@
 "use client";
 
 import { useAuth } from "@/app/memory/memory";
-import { useProfile } from "@/hooks/axios";
 
 export default function Page() {
   // const { data } = useProfile();
