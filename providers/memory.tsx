@@ -1,5 +1,6 @@
 "use client";
-import { clearAuthFlag, setAuthFlag, useProfile } from "@/hooks/axios";
+import api, { clearAuthFlag, setAuthFlag, useProfile } from "@/hooks/axios";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   createContext,
   ReactNode,
@@ -15,30 +16,41 @@ interface UserType {
   email: string;
   oauthid: string;
   id: string;
+  role: "admin" | "user";
 }
 
 interface ContextPayload {
   user: UserType | undefined;
   setUser: Dispatch<SetStateAction<UserType | undefined>>;
+  isSuccess: boolean;
+  isLoading: boolean;
+  logout: () => void;
 }
 
 // Initialize the context
 export const AuthContext = createContext<ContextPayload | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<UserType | undefined>(undefined);
-
-  const { data, isSuccess } = useProfile();
+  const queryClient = useQueryClient();
+  const [muser, setUser] = useState<UserType | undefined>(undefined);
+  const backendURL = process.env.NEXT_PUBLIC_Backend_URL;
+  const { data, isLoading, isSuccess } = useProfile();
+  let user = muser || data || null;
   useEffect(() => {
     if (data && isSuccess) {
-      setUser(data.data.user);
-    } else {
-      clearAuthFlag();
+      setUser(data);
     }
-  }, [data, isSuccess]);
-
+  }, [data, isSuccess, setUser]);
+  const logout = async () => {
+    await api.get(backendURL + "/logout");
+    clearAuthFlag();
+    setUser(undefined);
+    queryClient.clear();
+  };
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider
+      value={{ user, setUser, isLoading, isSuccess, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

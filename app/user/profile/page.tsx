@@ -1,9 +1,8 @@
 "use client";
 
-import { useAuth } from "@/app/memory/memory";
+import { useAuth } from "@/providers/memory";
 
 export default function Page() {
-  // const { data } = useProfile();
   const { user } = useAuth();
   console.log(user);
   return (

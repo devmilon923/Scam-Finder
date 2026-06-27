@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Figtree } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { AuthProvider } from "./memory/memory";
-import QueryProvider from "./memory/query";
+import { AuthProvider } from "../providers/memory";
+import QueryProvider from "../providers/query";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 

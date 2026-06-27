@@ -81,7 +81,7 @@ export function useProfile() {
         query: GET_PROFILE,
       });
 
-      return result.data;
+      return result.data.data.user;
     },
   });
 }
