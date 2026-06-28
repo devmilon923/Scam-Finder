@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 const controller = new AbortController();
 const backendURL = process.env.NEXT_PUBLIC_Backend_URL;
@@ -60,30 +60,58 @@ api.interceptors.response.use(
 );
 
 export function useProfile() {
-  const GET_PROFILE = `
-  query {
-    user {
-      id
-      name
-      email
-      role
-      oauthid
-      createdAt
+  const query = /* GraphQL */ `
+    query {
+      user {
+        id
+        name
+        email
+        role
+        oauthid
+        createdAt
+      }
     }
-  }
-`;
+  `;
   const authState = hasAuthFlag();
   return useQuery({
     queryKey: ["profile"],
     enabled: typeof window !== undefined && authState,
     queryFn: async () => {
       const result = await api.post(backendURL + "/gq", {
-        query: GET_PROFILE,
+        query,
       });
 
       return result.data.data.user;
     },
   });
 }
+export function useProfileUpdate() {
+  const queryClient = useQueryClient();
+  const query = /* GraphQL */ `
+    mutation UpdateProfile($payload: UserInput) {
+      updateProfile(payload: $payload) {
+        name
+        email
+      }
+    }
+  `;
 
+  return useMutation({
+    mutationFn: async (payload) => {
+      const result = await api.post(backendURL + "/gq", {
+        query,
+        variables: {
+          payload,
+        },
+      });
+
+      return result.data.data.updateProfile;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["profile"],
+      });
+    },
+  });
+}
 export default api;
