@@ -47,6 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(undefined);
     queryClient.clear();
   };
+  console.log(user);
   return (
     <AuthContext.Provider
       value={{ user, setUser, isLoading, isSuccess, logout }}
@@ -62,4 +63,3 @@ export function useAuth() {
   }
   return context;
 }
-

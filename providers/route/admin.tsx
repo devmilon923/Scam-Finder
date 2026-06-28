@@ -12,7 +12,7 @@ function AdminRoute({ children }: { children: ReactNode }) {
     setMunted(true);
   }, []);
   useEffect(() => {
-    if (!isLoading && !isSuccess && munted) {
+    if (!isLoading && isSuccess && munted) {
       if (!user) {
         router.push("/auth");
       } else if (user.role !== "admin") {

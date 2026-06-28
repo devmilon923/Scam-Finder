@@ -11,8 +11,10 @@ function UserRoute({ children }: { children: ReactNode }) {
   useEffect(() => {
     setMunted(true);
   }, []);
+
   useEffect(() => {
-    if (!isLoading && !isSuccess && munted) {
+    if (!isLoading && isSuccess && munted) {
+      console.log(user?.role);
       if (!user) {
         router.push("/auth");
       } else if (user.role !== "user") {
@@ -20,7 +22,7 @@ function UserRoute({ children }: { children: ReactNode }) {
       }
     }
   }, [isLoading, isSuccess, user, munted]);
-  if (!user && isLoading && munted)
+  if (!user && isLoading && munted )
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
