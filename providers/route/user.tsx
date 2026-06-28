@@ -14,7 +14,6 @@ function UserRoute({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!isLoading && isSuccess && munted) {
-      console.log(user?.role);
       if (!user) {
         router.push("/auth");
       } else if (user.role !== "user") {
