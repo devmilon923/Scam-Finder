@@ -33,7 +33,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            <div className="max-w-7xl mx-auto lg:px-4 px-2 min-h-screen">
+              {children}
+            </div>
+          </AuthProvider>
         </QueryProvider>
       </body>
     </html>

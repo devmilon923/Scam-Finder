@@ -1,31 +1,150 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import api from "@/hooks/axios";
-import { useAuth } from "@/providers/memory";
-import { useRouter } from "next/navigation";
+import MiniNavbar from "@/components/custom/mini-navbar";
+import StoreCard from "@/components/custom/store-card";
 
 export default function Home() {
-  const { logout } = useAuth();
-  const router = useRouter();
-
-  const handleProfile = async () => {
-    return router.push("/user/profile");
-  };
-  const handleAuth = async () => {
-    return router.push("/auth");
-  };
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <Button onClick={handleProfile}>Profile</Button>
-      <Button
-        onClick={() => {
-          logout();
-          router.push("/auth");
-        }}
-      >
-        Logout
-      </Button>
-      <Button onClick={handleAuth}>Auth</Button>
+    <div className=" ">
+      <div className="lg:pb-28 pb-24">
+        <MiniNavbar />
+      </div>
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-3 xl:grid-cols-3">
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="shopify"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="website"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+        />
+      </div>
     </div>
   );
 }
