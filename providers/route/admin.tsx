@@ -12,14 +12,14 @@ function AdminRoute({ children }: { children: ReactNode }) {
     setMunted(true);
   }, []);
   useEffect(() => {
-    if (!isLoading && munted) {
+    if (!isLoading && isSuccess && munted) {
       if (!user) {
         router.push("/auth");
       } else if (user.role !== "admin") {
         router.push("/unauthorized");
       }
     }
-  }, [isLoading, user, munted]);
+  }, [isLoading, isSuccess, user, munted]);
   if (!user && isLoading && munted)
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
