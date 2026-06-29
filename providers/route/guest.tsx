@@ -29,6 +29,6 @@ export default function GuestRoute({ children }: { children: ReactNode }) {
         </div>
       </div>
     );
-  if (!user) return children;
+  if (!user && !isSuccess) return children;
   return null;
 }
