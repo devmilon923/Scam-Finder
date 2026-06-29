@@ -31,7 +31,7 @@ function AdminRoute({ children }: { children: ReactNode }) {
         </div>
       </div>
     );
-  if (user?.role === "admin" && isSuccess) {
+  if (user?.role === "admin") {
     return <>{children}</>;
   }
   return null;

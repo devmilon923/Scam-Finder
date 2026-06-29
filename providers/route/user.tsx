@@ -21,7 +21,7 @@ function UserRoute({ children }: { children: ReactNode }) {
       }
     }
   }, [isLoading, isSuccess, user, munted]);
-  if (!user && isLoading && munted)
+  if (!user && isLoading && munted )
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
@@ -32,7 +32,7 @@ function UserRoute({ children }: { children: ReactNode }) {
         </div>
       </div>
     );
-  if (user?.role === "user" && isSuccess) {
+  if (user?.role === "user") {
     return <>{children}</>;
   }
   return null;

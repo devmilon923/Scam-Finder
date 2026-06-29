@@ -18,7 +18,6 @@ export default function Home() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <Button onClick={handleProfile}>Profile</Button>
       <Button
-        variant={"secondary"}
         onClick={() => {
           logout();
           router.push("/auth");
