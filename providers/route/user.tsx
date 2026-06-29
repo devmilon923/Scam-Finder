@@ -13,15 +13,15 @@ function UserRoute({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (!isLoading && isSuccess && munted) {
+    if (!isLoading && munted) {
       if (!user) {
         router.push("/auth");
       } else if (user.role !== "user") {
         router.push("/unauthorized");
       }
     }
-  }, [isLoading, isSuccess, user, munted]);
-  if (!user && isLoading && munted )
+  }, [isLoading, user, munted]);
+  if (!user && isLoading && munted)
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
         <div className="flex flex-col items-center gap-4">
@@ -32,7 +32,7 @@ function UserRoute({ children }: { children: ReactNode }) {
         </div>
       </div>
     );
-  if (user?.role === "user") {
+  if (user?.role === "user" && isSuccess) {
     return <>{children}</>;
   }
   return null;

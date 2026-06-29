@@ -12,12 +12,12 @@ export default function GuestRoute({ children }: { children: ReactNode }) {
     setMunted(true);
   }, []);
   useEffect(() => {
-    if (!isLoading && isSuccess && munted) {
+    if (!isLoading && munted) {
       if (user) {
         router.push("/user/profile");
       }
     }
-  }, [isLoading, isSuccess, munted]);
+  }, [isLoading, munted]);
   if (!user && isLoading && munted)
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
@@ -29,6 +29,6 @@ export default function GuestRoute({ children }: { children: ReactNode }) {
         </div>
       </div>
     );
-  if (!user) return children;
+  if (!user && !isSuccess) return children;
   return null;
 }
