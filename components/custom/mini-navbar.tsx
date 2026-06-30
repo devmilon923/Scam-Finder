@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import {
   FaSearch,
@@ -85,14 +86,17 @@ export default function MiniNavbar() {
         <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4">
           {/* LEFT: Logo + Search */}
           <div className="flex items-center gap-3 flex-1 overflow-hidden">
-            <div className="flex items-center gap-2 shrink-0">
+            <Link
+              href={"/cases"}
+              className="flex items-center gap-2 shrink-0 cursor-pointer"
+            >
               <div className="flex h-8 w-8 items-center justify-center bg-zinc-950 text-white">
                 <FaShieldAlt size={16} />
               </div>
-              <span className="hidden sm:block font-sans text-sm font-black uppercase tracking-tighter text-zinc-950">
+              <span className="hidden  sm:block font-sans text-sm font-black uppercase tracking-tighter text-zinc-950">
                 INTEL<span className="text-red-600">SCAN</span>
               </span>
-            </div>
+            </Link>
 
             <div className="flex-1 max-w-xl px-3 mx-auto sm:w-fit">
               <div className="relative group">
@@ -132,7 +136,7 @@ export default function MiniNavbar() {
                 </div>
               )}
             </div>
-            <button className="text-[11px] font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-950">
+            <button className="text-[11px] cursor-pointer font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-950">
               Portal
             </button>
             <button className="bg-zinc-950 rounded-sm cursor-pointer px-5 py-2.5 text-[11px] font-bold uppercase text-white hover:bg-red-800 transition-colors">
@@ -174,7 +178,7 @@ export default function MiniNavbar() {
                 </div>
               )}
             </div>
-            <button className="flex items-center gap-3 py-3 border-b border-zinc-100 text-sm font-bold uppercase text-zinc-900">
+            <button className="flex cursor-pointer items-center gap-3 py-3 border-b border-zinc-100 text-sm font-bold uppercase text-zinc-900">
               <FaClipboardList /> My Portal
             </button>
             <button className="w-full bg-zinc-950 py-4 text-sm font-bold uppercase text-white tracking-widest mt-4">

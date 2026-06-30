@@ -14,7 +14,7 @@ export default function GuestRoute({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!isLoading && munted) {
       if (user) {
-        router.push("/user/profile");
+        router.push("/cases");
       }
     }
   }, [isLoading, munted]);

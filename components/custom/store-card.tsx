@@ -85,7 +85,7 @@ export default function StoreCard({
           {isVerified === "verified" ? (
             <>
               <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full ">
-                <CheckCircle className="" color="#3B6D11" strokeWidth={3} />
+                <CheckCircle className="" color="#166534" strokeWidth={3} />
               </span>
               <span>Verified</span>
             </>
@@ -100,9 +100,9 @@ export default function StoreCard({
         </div>
 
         <div
-          className={`rounded-[6px] px-2.5 py-1 text-[11px] font-semibold capitalize leading-none ${
+          className={`rounded-sm px-2.5 py-1 text-[11px] font-semibold capitalize leading-none ${
             caseStatus === "active"
-              ? "bg-[#FAEEDA] text-[#854F0B]"
+              ? "bg-[#ECDFCC] text-[#3C3D37]"
               : "bg-[#E7F6EC] text-[#166534]"
           }`}
         >
