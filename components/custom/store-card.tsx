@@ -1,104 +1,129 @@
+import { FaFacebook, FaShopify, FaGlobe, FaMobileAlt } from "react-icons/fa";
 import {
-  FaFacebook,
-  FaShopify,
-  FaGlobe,
-  FaMobileAlt,
-  FaExclamationTriangle,
-} from "react-icons/fa";
+  AlertTriangle,
+  Check,
+  Clock,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
 import { Button } from "../ui/button";
-import MiniNavbar from "./mini-navbar";
+// import MiniNavbar from "./mini-navbar"; // Add back if needed
 
 type Platform = "facebook" | "shopify" | "website" | "app";
 
 interface StoreCardProps {
   name: string;
-  logo: string;
+  logo?: string; // Kept for interface compatibility, though unused in the new minimalist design
   platform: Platform;
   category: string;
   allegation: string;
   joinedDate: string;
   location: string;
+  isVerified: "verified" | "reviewing";
+  caseStatus: "active" | "negotiate";
+  lastUpdate: string;
 }
 
 const platformConfig = {
-  facebook: { label: "Facebook", icon: FaFacebook },
-  shopify: { label: "Shopify", icon: FaShopify },
-  website: { label: "Web Domain", icon: FaGlobe },
-  app: { label: "Mobile App", icon: FaMobileAlt },
+  facebook: { label: "Facebook business page", icon: FaFacebook },
+  shopify: { label: "Shopify store", icon: FaShopify },
+  website: { label: "Web domain", icon: FaGlobe },
+  app: { label: "Mobile app", icon: FaMobileAlt },
 };
 
 export default function StoreCard({
   name,
-  logo,
   platform,
   category,
   allegation,
   joinedDate,
   location,
+  isVerified,
+  caseStatus,
+  lastUpdate,
 }: StoreCardProps) {
-  const platformInfo = platformConfig[platform];
-  const PlatformIcon = platformInfo.icon;
+  const platformInfo = platformConfig[platform] || platformConfig.website;
 
   return (
-    <div className="group relative flex w-full flex-col border border-zinc-300 bg-white p-4.5 transition-all duration-300 hover:border-zinc-800 hover:shadow-[0_4px_20px_rgb(0,0,0,0.08)]">
-      <div className="flex items-start gap-3">
-        <div className="h-10 w-10 shrink-0 rounded-sm border border-zinc-200 bg-zinc-50 p-0.5">
-          <img
-            src={logo}
-            alt={name}
-            className="h-full w-full object-cover mix-blend-multiply grayscale-80 contrast-125"
-          />
+    <div className="w-105 max-w-full overflow-hidden rounded-sm border border-[#DEDCD3] bg-white font-sans">
+      {/* ---------- HEADER ---------- */}
+      <div className="flex items-center justify-between bg-[#070F2B] px-4.5 py-3.5">
+        <div className="flex items-center gap-1.75 text-[11px] font-semibold uppercase tracking-[0.06em] text-white">
+          <AlertTriangle size={15} color="#FFFFFF" strokeWidth={2} />
+          Incident record
         </div>
+        <div className="text-[11px] text-white/55">Updated {lastUpdate}</div>
+      </div>
 
-        <div className="min-w-0 flex-1">
-          <h2
-            className="truncate text-base font-bold tracking-tight text-zinc-950"
-            title={name}
-          >
-            {name}
-          </h2>
-
-          <div className="mt-0.5 flex items-center gap-1.5 text-zinc-500">
-            <PlatformIcon size={11} className="shrink-0" />
-            <span className="truncate font-mono text-[10px] font-semibold uppercase tracking-wider">
-              {platformInfo.label}
-            </span>
-          </div>
+      {/* ---------- SUBJECT SECTION ---------- */}
+      <div className="border-b border-[#EEEDE7] px-4.5 pb-3.5 pt-4">
+        <div className="mb-1 text-[11px] font-semibold uppercase tracking-[0.04em] text-[#98958A]">
+          Suspect
+        </div>
+        <div className="text-[16px] font-semibold text-[#1F1E1B]">{name}</div>
+        <div className="mt-0.5 text-[12px] text-[#6B6860]">
+          {platformInfo.label} · {category}
         </div>
       </div>
 
-      <div className="mt-4 border-l-[3px] border-red-700 pl-3">
-        <span className="flex items-center gap-1.5 font-sans text-[10px] font-extrabold tracking-widest text-red-700 uppercase">
-          <FaExclamationTriangle size={10} />
-          Flagged Incident
-        </span>
-
-        <p className="mt-1 text-sm font-semibold leading-snug text-zinc-950 line-clamp-2">
+      {/* ---------- INCIDENT SECTION ---------- */}
+      <div className="border-b border-[#EEEDE7] px-4.5 pb-3.5 pt-4">
+        <div className="mb-1 text-[11px] font-semibold uppercase tracking-[0.04em] text-[#98958A]">
+          Incident
+        </div>
+        <div className="text-[15px] font-semibold text-[#D92243]">
           {allegation}
-        </p>
+        </div>
+        <div className="mt-0.5 text-[12px] text-[#6B6860]">
+          Reported {joinedDate} · {location}
+        </div>
       </div>
 
-      <div className="flex-1" />
-
-      <div className="mt-5 flex items-end justify-between border-t border-zinc-200 pt-3.5">
-        <div className="flex flex-col font-sans text-[11px] leading-normal">
-          <span className="font-bold text-zinc-900 truncate max-w-35">
-            {category}
-          </span>
-          <span className="mt-0.5 font-mono text-[10px] font-medium text-zinc-500">
-            {location} • {joinedDate}
-          </span>
+      {/* ---------- META STRIP ---------- */}
+      <div className="flex items-center justify-between border-b border-[#EEEDE7] bg-[#FAFAF8] px-4.5 py-3">
+        <div className="flex items-center gap-1.5 text-[13px] font-semibold leading-none text-[#1F1E1B]">
+          {isVerified === "verified" ? (
+            <>
+              <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full ">
+                <CheckCircle className="" color="#3B6D11" strokeWidth={3} />
+              </span>
+              <span>Verified</span>
+            </>
+          ) : (
+            <>
+              <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full  ">
+                <Clock className="" color="#f18701" strokeWidth={3} />
+              </span>
+              <span>Reviewing</span>
+            </>
+          )}
         </div>
 
-        <Button
-          variant={"outline"}
-          type="button"
-          className="flex cursor-pointer shrink-0 items-center gap-1 font-sans text-xs font-bold text-zinc-900 transition-colors hover:text-red-700"
+        <div
+          className={`rounded-[6px] px-2.5 py-1 text-[11px] font-semibold capitalize leading-none ${
+            caseStatus === "active"
+              ? "bg-[#FAEEDA] text-[#854F0B]"
+              : "bg-[#E7F6EC] text-[#166534]"
+          }`}
         >
-          Open Case{" "}
-          <span className="transition-transform group-hover:translate-x-0.5">
-            →
-          </span>
+          {caseStatus}
+        </div>
+      </div>
+
+      {/* ---------- ACTION ---------- */}
+      <div className="p-4.5">
+        <Button
+          variant="outline"
+          type="button"
+          className="group flex w-full cursor-pointer items-center justify-center gap-1.5  border border-[#D7D5CB] bg-transparent p-2.5 text-[13px] font-semibold text-[#1F1E1B] rounded-sm transition-colors hover:bg-[#FAFAF8]"
+        >
+          Open case file
+          <ArrowRight
+            size={14}
+            color="#1F1E1B"
+            strokeWidth={2}
+            className="transition-transform group-hover:translate-x-0.5"
+          />
         </Button>
       </div>
     </div>

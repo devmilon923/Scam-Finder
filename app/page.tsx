@@ -4,7 +4,7 @@ import StoreCard from "@/components/custom/store-card";
 
 export default function Home() {
   return (
-    <div className=" ">
+    <div className="pb-12">
       <div className="lg:pb-28 pb-24">
         <MiniNavbar />
       </div>
@@ -17,6 +17,9 @@ export default function Home() {
           allegation="Money Scam"
           joinedDate="Jan 15, 2024"
           location="New York, USA"
+          isVerified="verified"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="active"
         />
         <StoreCard
           name="Maison & Co."
@@ -26,6 +29,9 @@ export default function Home() {
           allegation="Money Scam"
           joinedDate="Jan 15, 2024"
           location="New York, USA"
+          isVerified="reviewing"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="active"
         />
         <StoreCard
           name="Maison & Co."
@@ -35,6 +41,9 @@ export default function Home() {
           allegation="Money Scam"
           joinedDate="Jan 15, 2024"
           location="New York, USA"
+          isVerified="verified"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="active"
         />
         <StoreCard
           name="Maison & Co."
@@ -44,6 +53,21 @@ export default function Home() {
           allegation="Money Scam"
           joinedDate="Jan 15, 2024"
           location="New York, USA"
+          isVerified="verified"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="active"
+        />{" "}
+        <StoreCard
+          name="Maison & Co."
+          category="Fashion & Apparel"
+          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
+          platform="facebook"
+          allegation="Money Scam"
+          joinedDate="Jan 15, 2024"
+          location="New York, USA"
+          isVerified="verified"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="active"
         />
         <StoreCard
           name="Maison & Co."
@@ -53,6 +77,9 @@ export default function Home() {
           allegation="Money Scam"
           joinedDate="Jan 15, 2024"
           location="New York, USA"
+          isVerified="verified"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="active"
         />
         <StoreCard
           name="Maison & Co."
@@ -62,6 +89,9 @@ export default function Home() {
           allegation="Money Scam"
           joinedDate="Jan 15, 2024"
           location="New York, USA"
+          isVerified="verified"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="active"
         />
         <StoreCard
           name="Maison & Co."
@@ -71,6 +101,9 @@ export default function Home() {
           allegation="Money Scam"
           joinedDate="Jan 15, 2024"
           location="New York, USA"
+          isVerified="reviewing"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="active"
         />
         <StoreCard
           name="Maison & Co."
@@ -80,69 +113,9 @@ export default function Home() {
           allegation="Money Scam"
           joinedDate="Jan 15, 2024"
           location="New York, USA"
-        />
-        <StoreCard
-          name="Maison & Co."
-          category="Fashion & Apparel"
-          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
-          platform="shopify"
-          allegation="Money Scam"
-          joinedDate="Jan 15, 2024"
-          location="New York, USA"
-        />
-        <StoreCard
-          name="Maison & Co."
-          category="Fashion & Apparel"
-          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
-          platform="website"
-          allegation="Money Scam"
-          joinedDate="Jan 15, 2024"
-          location="New York, USA"
-        />
-        <StoreCard
-          name="Maison & Co."
-          category="Fashion & Apparel"
-          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
-          platform="facebook"
-          allegation="Money Scam"
-          joinedDate="Jan 15, 2024"
-          location="New York, USA"
-        />
-        <StoreCard
-          name="Maison & Co."
-          category="Fashion & Apparel"
-          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
-          platform="facebook"
-          allegation="Money Scam"
-          joinedDate="Jan 15, 2024"
-          location="New York, USA"
-        />
-        <StoreCard
-          name="Maison & Co."
-          category="Fashion & Apparel"
-          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
-          platform="facebook"
-          allegation="Money Scam"
-          joinedDate="Jan 15, 2024"
-          location="New York, USA"
-        />
-        <StoreCard
-          name="Maison & Co."
-          category="Fashion & Apparel"
-          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
-          platform="facebook"
-          allegation="Money Scam"
-          joinedDate="Jan 15, 2024"
-          location="New York, USA"
-        />
-        <StoreCard
-          name="Maison & Co."
-          category="Fashion & Apparel"
-          logo="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/company-logo-design-template-e089327a5c476ce5c70c74f7359c5898_screen.jpg"
-          platform="facebook"
-          allegation="Money Scam"
-          joinedDate="Jan 15, 2024"
-          location="New York, USA"
+          isVerified="verified"
+          lastUpdate="Jan 15, 2024"
+          caseStatus="negotiate"
         />
       </div>
     </div>

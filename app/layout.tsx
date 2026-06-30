@@ -34,7 +34,7 @@ export default function RootLayout({
       >
         <QueryProvider>
           <AuthProvider>
-            <div className="max-w-7xl mx-auto lg:px-4 px-2 min-h-screen">
+            <div className="max-w-7xl mx-auto lg:px-4 px-3 min-h-screen">
               {children}
             </div>
           </AuthProvider>

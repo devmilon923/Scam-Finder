@@ -65,7 +65,7 @@ export default function MiniNavbar() {
           <button
             key={item}
             onClick={() => toggleFilter(item)}
-            className={`flex items-center justify-between px-3 py-2 text-xs font-medium hover:bg-zinc-100 ${
+            className={`flex items-center cursor-pointer justify-between px-3 py-2 text-xs font-medium hover:bg-zinc-100 ${
               isSelected ? "text-black" : "text-zinc-700"
             }`}
           >
@@ -105,7 +105,7 @@ export default function MiniNavbar() {
                 <input
                   type="text"
                   placeholder="Search records..."
-                  className="w-full bg-zinc-100 border border-transparent hover:bg-zinc-200 text-sm py-2 pl-9 pr-3 rounded transition-all duration-200 focus:bg-white focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 focus:outline-none placeholder:text-zinc-400"
+                  className="w-full bg-zinc-100 border border-transparent hover:bg-zinc-200 text-sm py-2 pl-9 pr-3 rounded-sm transition-all duration-200 focus:bg-white focus:border-zinc-950 focus:ring-1 focus:ring-zinc-950 focus:outline-none placeholder:text-zinc-400"
                 />
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function MiniNavbar() {
             <div className="relative" ref={filterRef}>
               <button
                 onClick={() => setIsDesktopFilterOpen(!isDesktopFilterOpen)}
-                className={`flex items-center gap-2 border-2 px-4 py-2 text-xs font-bold uppercase transition-colors ${
+                className={`flex items-center rounded-sm cursor-pointer gap-2 border-2 px-4 py-2 text-xs font-bold uppercase transition-colors ${
                   isDesktopFilterOpen
                     ? "border-zinc-950 text-zinc-950"
                     : "border-zinc-200 text-zinc-600 hover:border-zinc-950"
@@ -135,8 +135,8 @@ export default function MiniNavbar() {
             <button className="text-[11px] font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-950">
               Portal
             </button>
-            <button className="bg-zinc-950 px-5 py-2.5 text-[11px] font-bold uppercase text-white hover:bg-red-600 transition-colors">
-              Submit
+            <button className="bg-zinc-950 rounded-sm cursor-pointer px-5 py-2.5 text-[11px] font-bold uppercase text-white hover:bg-red-800 transition-colors">
+              Submit Case
             </button>
           </div>
 
